@@ -44,7 +44,7 @@ const RChat = (props) => {
   const footer = <ChatComposer showEmoji placeholder="Please type your message" onSend={(message) => onSend(message)}/>
   return (
     <EmojiContext.Provider value={{ set: 'google', spriteSrcResolver: fetchGoogleSprite }}>
-        <Chat header={header} body={body} footer={footer}/>   
+        <Chat header={header} body={body} footer={footer} className={props.className}/>   
     </EmojiContext.Provider>
   )
 }

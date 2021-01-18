@@ -1,6 +1,7 @@
 import './App.css';
 import RChat from './RChat';
-import {Configuration} from '@pega/cosmos-react-core';
+import {Button, Configuration, Icon} from '@pega/cosmos-react-core';
+import { useState } from 'react';
 
 
 const messages = [
@@ -348,11 +349,16 @@ const messages = [
 ];
 
 function App() {
+  const [isVisible,toggleVisibility] = useState(false);
+  const toggleChat = () => {
+    toggleVisibility(!isVisible);
+  }
   return (
     <Configuration>
-    <div className="App" style={{width: '450px'}}>
+    <div className="signal" style={{width: '450px'}}>
       
-      <RChat msgList={messages}/>
+      <RChat msgList={messages} className={`signal-chat ${isVisible ? 'show-chat':'hide-chat'}`}/>
+      <Button variant="primary" icon className="signal-chat-icon" onClick={() => toggleChat()}><Icon name="chat-solid"/></Button>
     </div>
     </Configuration>
 

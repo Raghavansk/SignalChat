@@ -1,38 +1,64 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.signal {
+}
+.signal .signal-chat {
+  position: absolute;
+  right: 0;
+  bottom: 90px;
+  width: 450px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+}
+.signal .show-chat {
+  animation-duration: 200ms;
+  animation-name: signal_bounce_in;
+  transition-timing-function: ease-in;
+}
+.signal .hide-chat {
+  animation-duration: 300ms;
+  animation-name: signal_bounce_out;
+  transition-timing-function: ease-in;
+  opacity: 0;
+  transform: scale(0, 0);
+}
+.signal .signal-chat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes signal_bounce_in {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+    transform-origin: bottom right;
+  }
+  50% {
+    transform: scale(1.03, 1.03);
+    transform-origin: bottom right;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+    transform-origin: bottom right;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes signal_bounce_out {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+    transform-origin: bottom right;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 0;
+    transform: scale(0, 0);
+    transform-origin: bottom right;
   }
 }
